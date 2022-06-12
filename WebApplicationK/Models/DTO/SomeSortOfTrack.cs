@@ -3,6 +3,6 @@
     public class SomeSortOfTrack
     {
         public string TrackName { get; set; }
-        public float Duration { get; set; }
+        public double Duration { get; set; }
     }
 }

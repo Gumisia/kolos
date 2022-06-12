@@ -6,6 +6,6 @@ namespace WebApplicationK.Services
 {
     public interface IDbService
     {
-        Task<IEnumerable<SomeSortOfMusician>> GetMusicians();
+        Task<IEnumerable<SomeSortOfMusician>> GetMusicians(int id);
     }
 }

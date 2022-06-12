@@ -15,12 +15,14 @@ namespace WebApplicationK.Controllers
         {
             _dbService = dbService;
         }
-    }
 
-    [HttpGet]
-    public async Task<IActionResult> GetMusicians()
-    {
-        var musicans = await _dbService.GetMusicians();
-        return Ok(musicans);
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<IActionResult> GetMusicians(int id)
+        {
+            var musicans = await _dbService.GetMusicians(id);
+            return Ok(musicans);
+        }
     }
 }

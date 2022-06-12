@@ -15,7 +15,7 @@ namespace WebApplicationK.Services
         {
             _dbContext = dbContext;
         }
-        public async Task<IEnumerable<SomeSortOfMusician>> GetMusicians()
+        public async Task<IEnumerable<SomeSortOfMusician>> GetMusicians(int id)
         {
             return await _dbContext.Musicans
                 .Select(e => new SomeSortOfMusician
@@ -24,7 +24,7 @@ namespace WebApplicationK.Services
                     LastName = e.LastName,
                     Nickname = e.Nickname,
                     MusicianTracks = e.MusicanTracks.Select(e=> new SomeSortOfTrack { TrackName = e.IdTrackNavigation.TrackName, Duration = e.IdTrackNavigation.Duration}).ToList()
-                }).OrderByDescending(e => e.FirstName).ToListAsync();
+                }).OrderBy(e => e.LastName).ToListAsync();
         }
     }
 }
